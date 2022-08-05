@@ -1,0 +1,16 @@
+.bg-gradient-hijau-right {
+    background: linear-gradient(to right, #18ab8f, #94c83f);
+}
+
+.bg-utama {
+    background-color: #218173;
+}
+
+.btn-primary {
+    background-color: #218173 !important;
+    border-color: #218173 !important;
+}
+
+.btn-link {
+    color: #218173 !important;
+}
