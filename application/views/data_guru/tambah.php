@@ -31,27 +31,32 @@
                                     <input name="jabatan" type="text" class="form-control" id="jabatan" required maxlength="20">
                                 </div>
                             </div>
-
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
                             <div class="form-group row">
                                 <label for="tanggal_lahir" class="col-sm-4 col-form-label">Tgl Lahir</label>
                                 <div class="col-sm-8">
                                     <input name="tanggal_lahir" type="date" class="form-control" id="tanggal_lahir" required>
                                 </div>
                             </div>
-
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label for="tempat_lahir" class="col-sm-4 col-form-label">Tempat Lahir</label>
+                                <div class="col-sm-8">
+                                    <input name="tempat_lahir" type="text" class="form-control" id="tempat_lahir" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
                             <div class="form-group row">
                                 <label for="alamat" class="col-sm-4 col-form-label">Alamat</label>
                                 <div class="col-sm-8">
                                     <input name="alamat" type="text" class="form-control" id="alamat" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <br><br><br><br><br><br>
-                            <div class="form-group row" style="margin-top: 20px;">
-                                <label for="tempat_lahir" class="col-sm-4 col-form-label">Tempat Lahir</label>
-                                <div class="col-sm-8">
-                                    <input name="tempat_lahir" type="text" class="form-control" id="tempat_lahir" required>
                                 </div>
                             </div>
                         </div>

@@ -19,7 +19,7 @@
                     <div class="form-group row">
                         <label for="nama_pelajaran" class="col-sm-4 col-form-label">Nama Pelajaran</label>
                         <div class="col-sm-8">
-                            <input name="nama_pelajaran" type="text" class="form-control" id="nama_pelajaran" required maxlength="18">
+                            <input name="nama_pelajaran" type="text" class="form-control" id="nama_pelajaran" required maxlength="100">
                         </div>
                     </div>
 

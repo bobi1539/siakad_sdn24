@@ -19,7 +19,7 @@
                     <div class="form-group row">
                         <label for="nama_pelajaran" class="col-sm-4 col-form-label">Nama Pelajaran</label>
                         <div class="col-sm-8">
-                            <input name="nama_pelajaran" type="text" class="form-control" id="nama_pelajaran" required maxlength="18" value="<?php echo $data_pelajaran['nama_pelajaran'] ?>">
+                            <input name="nama_pelajaran" type="text" class="form-control" id="nama_pelajaran" required maxlength="100" value="<?php echo $data_pelajaran['nama_pelajaran'] ?>">
                         </div>
                     </div>
 

@@ -6,10 +6,11 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url("dashboard") ?>">
-            <div class="sidebar-brand-icon rotate-n-15">
+            <div class="sidebar-brand-icon">
                 <!-- <i class="fas fa-laugh-wink"></i> -->
+                SI
             </div>
-            <div class="sidebar-brand-text mx-3">SI SDN 24</div>
+            <div class="sidebar-brand-text mx-3">SDN 24</div>
         </a>
 
         <!-- Divider -->
@@ -23,17 +24,17 @@
             </a>
         </li> -->
 
-        <li class="nav-item <?php echo $aktif == 'data_kelas' ? 'active' : '' ?>">
-            <a class="nav-link" href="<?php echo base_url("data_kelas") ?>">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Data Kelas</span>
-            </a>
-        </li>
-
         <li class="nav-item <?php echo $aktif == 'data_guru' ? 'active' : '' ?>">
             <a class="nav-link" href="<?php echo base_url("data_guru") ?>">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Data Guru</span>
+            </a>
+        </li>
+
+        <li class="nav-item <?php echo $aktif == 'data_kelas' ? 'active' : '' ?>">
+            <a class="nav-link" href="<?php echo base_url("data_kelas") ?>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Data Kelas</span>
             </a>
         </li>
 
@@ -55,6 +56,13 @@
             <a class="nav-link" href="<?php echo base_url("data_absensi") ?>">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Data Absensi</span>
+            </a>
+        </li>
+
+        <li class="nav-item <?php echo $aktif == 'data_nilai' ? 'active' : '' ?>">
+            <a class="nav-link" href="<?php echo base_url("data_nilai") ?>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Data Nilai</span>
             </a>
         </li>
         
