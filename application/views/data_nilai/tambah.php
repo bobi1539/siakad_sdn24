@@ -7,7 +7,7 @@
             <div class="card-body">
 
                 <?php echo $this->session->tempdata('pesan') ?>
-                
+
                 <form action="<?php echo base_url('data_nilai/tambah_aksi') ?>" method="POST">
                     <div class="row">
                         <div class="col-md-6">
@@ -21,29 +21,29 @@
                             <div class="form-group row">
                                 <label for="nis" class="col-sm-4 col-form-label">NIS</label>
                                 <div class="col-sm-8">
-                                <select class="form-control" id="nis" name="nis" onclick="clickNis()">
-                                    <?php foreach($data_siswa as $data): ?>
-                                        <option value="<?php echo $data['nis'] ?>">
-                                            <?php echo $data['nis'] ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
+                                    <select class="form-control" id="nis" name="nis" onclick="clickNis()">
+                                        <?php foreach ($data_siswa as $data) : ?>
+                                            <option value="<?php echo $data['nis'] ?>">
+                                                <?php echo $data['nis'] ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="id_pelajaran" class="col-sm-4 col-form-label">Id Pelajaran</label>
                                 <div class="col-sm-8">
-                                <select class="form-control" id="id_pelajaran" name="id_pelajaran">
-                                    <?php foreach($data_pelajaran as $data): ?>
-                                        <option value="<?php echo $data['id_pelajaran'] ?>"><?php echo $data['id_pelajaran'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
+                                    <select class="form-control" id="id_pelajaran" name="id_pelajaran">
+                                        <?php foreach ($data_pelajaran as $data) : ?>
+                                            <option value="<?php echo $data['id_pelajaran'] ?>"><?php echo $data['id_pelajaran'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            
+
                         </div>
                     </div>
                     <div class="row">
@@ -70,6 +70,16 @@
                                 <label for="t_pelajaran" class="col-sm-4 col-form-label">Tahun Pelajaran</label>
                                 <div class="col-sm-8">
                                     <input name="t_pelajaran" type="text" class="form-control" id="t_pelajaran" required maxlength="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label for="semester" class="col-sm-4 col-form-label">Semester</label>
+                                <div class="col-sm-8">
+                                    <input name="semester" type="text" class="form-control" id="semester" required maxlength="15">
                                 </div>
                             </div>
                         </div>
@@ -249,8 +259,8 @@
                             </div>
                         </div>
                     </div>
-                    
-                    
+
+
                     <a href="<?php echo base_url('data_nilai') ?>" class="btn btn-secondary">Kembali</a>
                     <button type="submit" class="btn btn-primary float-right">Simpan</button>
                 </form>
@@ -260,8 +270,7 @@
 </div>
 
 <script>
-
-    function clickNis(){
+    function clickNis() {
         let selectNis = document.getElementById("nis");
 
         let tinggi = document.getElementById("tinggi");
@@ -273,14 +282,13 @@
         let nisValue = selectNis.options[selectNis.selectedIndex].value;
         let url = "<?php echo base_url("data_nilai/get_siswa/") ?>" + nisValue;
         fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    tinggi.value = data.t_badan,
+            .then(response => response.json())
+            .then(data => {
+                tinggi.value = data.t_badan,
                     berat.value = data.b_badan,
                     pendengaran.value = data.k_pendengaran,
                     penglihatan.value = data.k_penglihatan,
                     gigi.value = data.k_gigi
-                });
+            });
     }
-    
 </script>

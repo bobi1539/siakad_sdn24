@@ -35,17 +35,6 @@ class Data_nilai extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    // public function edit($nip){
-    //     $data['aktif'] = 'data_guru';
-    //     $data['data_guru'] = $this->Guru_model->tampil_by_id($nip);
-
-    //     $this->load->view('template/header');
-    //     $this->load->view('template/admin/sidebar', $data);
-    //     $this->load->view('data_guru/edit', $data);
-    //     $this->load->view('template/end_sidebar');
-    //     $this->load->view('template/footer');
-    // }
-
     public function tambah_aksi()
     {
         $id_nilai = $this->input->post('id_nilai', true);
@@ -53,7 +42,7 @@ class Data_nilai extends CI_Controller
         $id_pelajaran = $this->input->post('id_pelajaran', true);
         $n_sekolah = $this->input->post('n_sekolah', true);
         $t_pelajaran = $this->input->post('t_pelajaran', true);
-        $semester = "";
+        $semester = $this->input->post('semester', true);
         $s_spiritual = $this->input->post('s_spiritual', true);
         $s_sosial = $this->input->post('s_sosial', true);
         $p_nilai = $this->input->post('p_nilai', true);
@@ -104,29 +93,16 @@ class Data_nilai extends CI_Controller
         redirect('data_nilai');
     }
 
-    // public function edit_aksi()
-    // {
-    //     $nip = $this->input->post('nip', true);
-    //     $nama_guru = $this->input->post('nama_guru', true);
-    //     $jabatan = $this->input->post('jabatan', true);
-    //     $tanggal_lahir = $this->input->post('tanggal_lahir', true);
-    //     $tempat_lahir = $this->input->post('tempat_lahir', true);
-    //     $alamat = $this->input->post('alamat', true);
+    public function lihat_nilai_siswa()
+    {
+        $nis = $this->input->post("nis", true);
+        $data['nilai_siswa_array'] = $this->Nilai_model->lihat_nilai_siswa_by_nis_array($nis);
+        $data['nilai_siswa'] = $this->Nilai_model->lihat_nilai_siswa_by_nis($nis);
 
-    //     $data = array(
-    //         'nama_guru' => $nama_guru,
-    //         'jabatan' => $jabatan,
-    //         'tanggal_lahir' => $tanggal_lahir,
-    //         'tempat_lahir' => $tempat_lahir,
-    //         'alamat' => $alamat
-    //     );
-
-    //     $this->Guru_model->edit($nip, $data);
-
-    //     pesan('Data guru berhasil diubah', 'success');
-    //     redirect('data_guru');
-
-    // }
+        $this->load->view('template/header');
+        $this->load->view('data_nilai/lihat_nilai_siswa', $data);
+        $this->load->view('template/footer');
+    }
 
     public function hapus($id_nilai)
     {

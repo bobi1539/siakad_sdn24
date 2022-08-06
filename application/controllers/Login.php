@@ -3,16 +3,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Login extends CI_Controller
 {
-    public function __construct()
+    private function isLogin()
     {
-        parent::__construct();
-        // if ($this->session->userdata('username')) {
-        //     redirect('dashboard');
-        // }
+        if ($this->session->userdata('username')) {
+            redirect('data_guru');
+        }
     }
-    
+
     public function index()
     {
+        $this->isLogin();
+
         $data['aktif'] = 'login';
         $this->load->view('template/header');
         $this->load->view('login/login');
@@ -21,25 +22,26 @@ class Login extends CI_Controller
 
     public function login_user()
     {
+        $this->isLogin();
+
         $username = $this->input->post('username', true);
         $password = $this->input->post('password', true);
 
         $data_user = $this->Login_model->tampil_by_username($username);
 
-        if(!$data_user){
+        if (!$data_user) {
             $this->pesan('Username tidak terdaftar', 'danger');
             redirect('login');
         }
 
-        if(!password_verify($password, $data_user['password'])){
+        if (!password_verify($password, $data_user['password'])) {
             $this->pesan('Password anda salah', 'danger');
-                redirect('login');
+            redirect('login');
         }
 
         $this->session->set_userdata($data_user);
-        
+
         redirect('data_kelas');
-        
     }
 
     public function logout()
@@ -63,7 +65,8 @@ class Login extends CI_Controller
         </div>', 2);
     }
 
-    public function regis(){
+    public function regis()
+    {
         $role_id = [
             "TU",
             "WALI KELAS"

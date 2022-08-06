@@ -31,42 +31,13 @@ class Nilai_model extends CI_Model
         $this->db->update('tbl_absensi', $data);
     }
 
-    public function tampil_by_id($id_absen)
+    public function lihat_nilai_siswa_by_nis_array($nis)
     {
-        $this->db->select("*");
-        $this->db->from("tbl_absensi");
-        $this->db->join("tbl_guru", "tbl_guru.nip = tbl_absensi.nip");
-        $this->db->join("tbl_siswa", "tbl_siswa.nis = tbl_absensi.nis");
-        $this->db->join("tbl_mapel", "tbl_mapel.id_pelajaran = tbl_absensi.id_pelajaran");
-        $this->db->join("tbl_kelas", "tbl_kelas.id_kelas = tbl_mapel.id_kelas");
-        $this->db->where('id_absen', $id_absen);
-        return $this->db->get()->row_array();
+        return $this->db->query("SELECT * FROM tbl_nilai AS tn JOIN tbl_siswa as ts ON ts.nis = tn.nis JOIN tbl_mapel as tm ON tm.id_pelajaran = tn.id_pelajaran WHERE tn.nis = '$nis'")->result_array();
     }
 
-    public function lihat_by_id($id_absen)
+    public function lihat_nilai_siswa_by_nis($nis)
     {
-        $this->db->select("*");
-        $this->db->from("tbl_absensi");
-        $this->db->join("tbl_guru", "tbl_guru.nip = tbl_absensi.nip");
-        $this->db->join("tbl_siswa", "tbl_siswa.nis = tbl_absensi.nis");
-        $this->db->join("tbl_mapel", "tbl_mapel.id_pelajaran = tbl_absensi.id_pelajaran");
-        $this->db->where('id_absen', $id_absen);
-        return $this->db->get()->result_array();
-    }
-
-    public function tampil_only_absensi($id_absen)
-    {
-        $this->db->where("id_absen", $id_absen);
-        return $this->db->get("tbl_absensi")->row_array();
-    }
-
-    public function tampil_only_absensi_dan_siswa($id_absen, $nis)
-    {
-        return $this->db->query("SELECT * FROM tbl_absensi WHERE id_absen = '$id_absen' AND nis = '$nis'")->row_array();
-    }
-
-    public function tampil_absensi_judul($id_absen)
-    {
-        return $this->db->query("SELECT DISTINCT ta.nip, tg.nama_guru, tm.nama_pelajaran, tm.id_kelas FROM tbl_absensi as ta JOIN tbl_guru as tg ON tg.nip = ta.nip JOIN tbl_mapel as tm ON tm.id_pelajaran = ta.id_pelajaran WHERE ta.id_absen = '$id_absen'")->row_array();
+        return $this->db->query("SELECT * FROM tbl_nilai AS tn JOIN tbl_siswa as ts ON ts.nis = tn.nis JOIN tbl_mapel as tm ON tm.id_pelajaran = tn.id_pelajaran WHERE tn.nis = '$nis'")->row_array();
     }
 }
