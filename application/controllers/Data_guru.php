@@ -99,8 +99,12 @@ class Data_guru extends CI_Controller
 
     public function hapus($nip)
     {
-        $this->Guru_model->hapus($nip);
-        pesan('Data guru berhasil dihapus', 'success');
+        $is_delete = $this->Guru_model->hapus($nip);
+        if(!$is_delete){
+            pesan('Data guru tidak bisa dihapus karena ada di tabel lain', 'warning');
+        } else {
+            pesan('Data guru berhasil dihapus', 'success');
+        }
         redirect('data_guru');
     }
 }

@@ -91,10 +91,10 @@ class Data_kelas extends CI_Controller
     {
         $is_delete = $this->Kelas_model->hapus($id_kelas);
         if(!$is_delete){
-            pesan('Data kelas tidak bisa dihapus karena dipakai di tabel lain', 'danger');
-            redirect('data_kelas');    
+            pesan('Data kelas tidak bisa dihapus karena dipakai di tabel lain', 'warning');
+        } else {
+            pesan('Data kelas berhasil dihapus', 'success');
         }
-        pesan('Data kelas berhasil dihapus', 'success');
         redirect('data_kelas');
     }
 }

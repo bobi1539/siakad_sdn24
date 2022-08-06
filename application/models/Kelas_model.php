@@ -14,12 +14,12 @@ class Kelas_model extends CI_Model
     public function hapus($id_kelas)
     {
         $this->db->where('id_kelas', $id_kelas);
-        $data_kelas = $this->db->get('tbl_mapel')->row_array();
+        $data_mapel = $this->db->get('tbl_mapel')->row_array();
 
         $this->db->where('id_kelas', $id_kelas);
         $data_siswa = $this->db->get('tbl_siswa')->row_array();
 
-        if($data_kelas || $data_siswa){
+        if($data_mapel || $data_siswa){
             return false;
         }
 
@@ -47,15 +47,5 @@ class Kelas_model extends CI_Model
         $this->db->join("tbl_guru", "tbl_guru.nip = tbl_kelas.nip");
         $this->db->where("id_kelas", $id_kelas);
         return $this->db->get()->row_array();
-    }
-
-    private function cek_di_mapel($id_kelas){
-        $this->db->where('id_kelas', $id_kelas);
-        $data_kelas = $this->db->get('tbl_mapel')->row_array();
-
-        if($data_kelas){
-            return true;
-        }
-        return false;
     }
 }

@@ -50,6 +50,13 @@
                 <span>Data Siswa</span>
             </a>
         </li>
+
+        <li class="nav-item <?php echo $aktif == 'data_absensi' ? 'active' : '' ?>">
+            <a class="nav-link" href="<?php echo base_url("data_absensi") ?>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Data Absensi</span>
+            </a>
+        </li>
         
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
