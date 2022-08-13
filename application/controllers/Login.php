@@ -41,7 +41,7 @@ class Login extends CI_Controller
 
         $this->session->set_userdata($data_user);
 
-        redirect('data_kelas');
+        redirect('data_guru');
     }
 
     public function logout()
@@ -65,19 +65,19 @@ class Login extends CI_Controller
         </div>', 2);
     }
 
-    public function regis()
-    {
-        $role_id = [
-            "TU",
-            "WALI KELAS"
-        ];
-        $data = [
-            "username" => "admintu",
-            "password" => password_hash("admintu147", PASSWORD_BCRYPT),
-            "full_name" => "admin tu",
-            "role_id" => $role_id[0]
-        ];
-        $this->Login_model->tambah($data);
-        echo "success";
-    }
+    // public function regis()
+    // {
+    //     $role_id = [
+    //         "TU",
+    //         "WALI KELAS"
+    //     ];
+    //     $data = [
+    //         "username" => "admintu",
+    //         "password" => password_hash("admintu147", PASSWORD_BCRYPT),
+    //         "full_name" => "admin tu",
+    //         "role_id" => $role_id[0]
+    //     ];
+    //     $this->Login_model->tambah($data);
+    //     echo "success";
+    // }
 }

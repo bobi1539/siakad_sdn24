@@ -9,7 +9,8 @@ class Data_pelajaran extends CI_Controller
         isLogin();
     }
 
-    public function index(){
+    public function index()
+    {
         $data['aktif'] = 'data_pelajaran';
         $data['data_pelajaran'] = $this->Pelajaran_model->tampil_data();
 
@@ -20,7 +21,18 @@ class Data_pelajaran extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function tambah(){
+    public function print_data()
+    {
+        $data['aktif'] = 'data_pelajaran';
+        $data['data_pelajaran'] = $this->Pelajaran_model->tampil_data();
+
+        $this->load->view('template/header');
+        $this->load->view('data_pelajaran/print_data', $data);
+        $this->load->view('template/footer');
+    }
+
+    public function tambah()
+    {
         $data['aktif'] = 'data_pelajaran';
         $data['data_kelas'] = $this->Kelas_model->tampil_data();
         $data['data_guru'] = $this->Guru_model->tampil_data();
@@ -32,7 +44,8 @@ class Data_pelajaran extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function edit($id_pelajaran){
+    public function edit($id_pelajaran)
+    {
         $data['aktif'] = 'data_pelajaran';
         $data['data_pelajaran'] = $this->Pelajaran_model->tampil_by_id($id_pelajaran);
         $data['data_kelas'] = $this->Kelas_model->tampil_data();
@@ -47,20 +60,20 @@ class Data_pelajaran extends CI_Controller
 
     public function tambah_aksi()
     {
-        $id_pelajaran = $this->input->post('id_pelajaran', true);
+        // $id_pelajaran = $this->input->post('id_pelajaran', true);
         $nama_pelajaran = $this->input->post('nama_pelajaran', true);
         $id_kelas = $this->input->post('id_kelas', true);
         $nip = $this->input->post('nip', true);
 
-        $data_pelajaran = $this->Pelajaran_model->tampil_by_id($id_pelajaran);
+        // $data_pelajaran = $this->Pelajaran_model->tampil_by_id($id_pelajaran);
 
-        if ($data_pelajaran) {
-            pesan('Data pelajaran dengan id : ' . $id_pelajaran . ' telah ada', 'danger');
-            redirect('data_pelajaran');
-        } 
-        
+        // if ($data_pelajaran) {
+        //     pesan('Data pelajaran dengan id : ' . $id_pelajaran . ' telah ada', 'danger');
+        //     redirect('data_pelajaran');
+        // }
+
         $data = array(
-            'id_pelajaran' => $id_pelajaran,
+            // 'id_pelajaran' => $id_pelajaran,
             'nama_pelajaran' => $nama_pelajaran,
             'id_kelas' => $id_kelas,
             'nip' => $nip
@@ -70,7 +83,6 @@ class Data_pelajaran extends CI_Controller
 
         pesan('Data pelajaran berhasil ditambahkan', 'success');
         redirect('data_pelajaran');
-
     }
 
     public function edit_aksi()
@@ -79,7 +91,7 @@ class Data_pelajaran extends CI_Controller
         $nama_pelajaran = $this->input->post('nama_pelajaran', true);
         $id_kelas = $this->input->post('id_kelas', true);
         $nip = $this->input->post('nip', true);
-        
+
         $data = array(
             'nama_pelajaran' => $nama_pelajaran,
             'id_kelas' => $id_kelas,
@@ -90,7 +102,6 @@ class Data_pelajaran extends CI_Controller
 
         pesan('Data pelajaran berhasil diubah', 'success');
         redirect('data_pelajaran');
-
     }
 
     public function hapus($id_pelajaran)

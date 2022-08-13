@@ -9,7 +9,8 @@ class Data_kelas extends CI_Controller
         isLogin();
     }
 
-    public function index(){
+    public function index()
+    {
         $data['aktif'] = 'data_kelas';
         $data['data_kelas'] = $this->Kelas_model->tampil_data();
 
@@ -20,7 +21,18 @@ class Data_kelas extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function tambah(){
+    public function print_data()
+    {
+        $data['aktif'] = 'data_kelas';
+        $data['data_kelas'] = $this->Kelas_model->tampil_data();
+
+        $this->load->view('template/header');
+        $this->load->view('data_kelas/print_data', $data);
+        $this->load->view('template/footer');
+    }
+
+    public function tambah()
+    {
         $data['aktif'] = 'data_kelas';
         $data['data_guru'] = $this->Guru_model->tampil_data();
 
@@ -31,7 +43,8 @@ class Data_kelas extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function edit($id_kelas){
+    public function edit($id_kelas)
+    {
         $data['aktif'] = 'data_kelas';
         $data['data_kelas'] = $this->Kelas_model->tampil_by_id($id_kelas);
         $data['data_guru'] = $this->Guru_model->tampil_data();
@@ -54,8 +67,8 @@ class Data_kelas extends CI_Controller
         if ($data_kelas) {
             pesan('Data kelas dengan id : ' . $id_kelas . ' telah ada', 'danger');
             redirect('data_kelas');
-        } 
-        
+        }
+
         $data = array(
             'id_kelas' => $id_kelas,
             'nip' => $nip,
@@ -66,7 +79,6 @@ class Data_kelas extends CI_Controller
 
         pesan('Data kelas berhasil ditambahkan', 'success');
         redirect('data_kelas');
-
     }
 
     public function edit_aksi()
@@ -74,7 +86,7 @@ class Data_kelas extends CI_Controller
         $id_kelas = $this->input->post('id_kelas', true);
         $nip = $this->input->post('nip', true);
         $wali_kelas = $this->input->post('wali_kelas', true);
-        
+
         $data = array(
             'nip' => $nip,
             'wali_kelas' => $wali_kelas,
@@ -84,13 +96,12 @@ class Data_kelas extends CI_Controller
 
         pesan('Data kelas berhasil diubah', 'success');
         redirect('data_kelas');
-
     }
 
     public function hapus($id_kelas)
     {
         $is_delete = $this->Kelas_model->hapus($id_kelas);
-        if(!$is_delete){
+        if (!$is_delete) {
             pesan('Data kelas tidak bisa dihapus karena dipakai di tabel lain', 'warning');
         } else {
             pesan('Data kelas berhasil dihapus', 'success');

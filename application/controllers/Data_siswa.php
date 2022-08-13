@@ -9,7 +9,8 @@ class Data_siswa extends CI_Controller
         isLogin();
     }
 
-    public function index(){
+    public function index()
+    {
         $data['aktif'] = 'data_siswa';
         $data['data_siswa'] = $this->Siswa_model->tampil_data();
 
@@ -20,7 +21,18 @@ class Data_siswa extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function tambah(){
+    public function print_data()
+    {
+        $data['aktif'] = 'data_siswa';
+        $data['data_siswa'] = $this->Siswa_model->tampil_data();
+
+        $this->load->view('template/header');
+        $this->load->view('data_siswa/print_data', $data);
+        $this->load->view('template/footer');
+    }
+
+    public function tambah()
+    {
         $data['aktif'] = 'data_siswa';
         $data['data_kelas'] = $this->Kelas_model->tampil_data();
 
@@ -31,7 +43,8 @@ class Data_siswa extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function edit($nis){
+    public function edit($nis)
+    {
         $data['aktif'] = 'data_siswa';
         $data['data_siswa'] = $this->Siswa_model->tampil_by_id($nis);
         $data['data_kelas'] = $this->Kelas_model->tampil_data();
@@ -69,8 +82,8 @@ class Data_siswa extends CI_Controller
         if ($data_siswa) {
             pesan('Data pelajaran dengan NIS : ' . $nis . ' telah ada', 'danger');
             redirect('data_siswa');
-        } 
-        
+        }
+
         $data = array(
             'nis' => $nis,
             'nisn' => $nisn,
@@ -96,7 +109,6 @@ class Data_siswa extends CI_Controller
 
         pesan('Data siswa berhasil ditambahkan', 'success');
         redirect('data_siswa');
-
     }
 
     public function edit_aksi()
@@ -119,7 +131,7 @@ class Data_siswa extends CI_Controller
         $k_penglihatan = $this->input->post('k_penglihatan', true);
         $k_gigi = $this->input->post('k_gigi', true);
         $id_kelas = $this->input->post('id_kelas', true);
-        
+
         $data = array(
             'nisn' => $nisn,
             'nama_siswa' => $nama_siswa,
@@ -144,7 +156,6 @@ class Data_siswa extends CI_Controller
 
         pesan('Data siswa berhasil diubah', 'success');
         redirect('data_siswa');
-
     }
 
     public function hapus($nis)

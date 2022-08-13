@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <form action="<?php echo base_url('data_nilai/lihat_nilai_siswa') ?>" method="POST" target="_blank">
 
-                            <div class="form-group row">
+                            <!-- <div class="form-group row">
                                 <label for="nis" class="col-sm-2 col-form-label">NIS</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" id="nis" name="nis">
@@ -19,6 +19,19 @@
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
+                                </div>
+                            </div> -->
+                            <div class="form-group row">
+                                <label for="nis" class="col-sm-2 col-form-label">NIS</label>
+                                <div class="col-sm-10">
+                                    <input list="nis" name="nis">
+                                    <datalist id="nis">
+                                        <?php foreach ($data_siswa as $data) : ?>
+                                            <option value="<?php echo $data['nis'] ?>">
+                                                <?php echo "Nama : " . $data['nama_siswa'] ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </datalist>
                                 </div>
                             </div>
 

@@ -12,6 +12,10 @@
                     tambah data
                 </a>
 
+                <a href="<?php echo base_url('data_pelajaran/print_data') ?>" class="btn btn-info mb-3" target="_blank">
+                    print data
+                </a>
+
                 <div class="table-responsive">
                     <table class="table table-hover " id="tabel-data">
                         <thead>

@@ -13,7 +13,8 @@ class Absensi_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
-    public function tampil_distinct_data(){
+    public function tampil_distinct_data()
+    {
         return $this->db->query("SELECT DISTINCT id_absen, tanggal_absen, semester FROM tbl_absensi")->result_array();
     }
 
@@ -71,5 +72,10 @@ class Absensi_model extends CI_Model
     public function tampil_absensi_judul($id_absen)
     {
         return $this->db->query("SELECT DISTINCT ta.nip, tg.nama_guru, tm.nama_pelajaran, tm.id_kelas FROM tbl_absensi as ta JOIN tbl_guru as tg ON tg.nip = ta.nip JOIN tbl_mapel as tm ON tm.id_pelajaran = ta.id_pelajaran WHERE ta.id_absen = '$id_absen'")->row_array();
+    }
+
+    public function tampil_id_max()
+    {
+        return $this->db->query("SELECT MAX(id_absen) as id_absen FROM tbl_absensi")->row_array();
     }
 }

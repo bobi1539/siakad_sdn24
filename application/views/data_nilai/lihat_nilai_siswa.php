@@ -124,4 +124,7 @@
             </div>
         </div>
     </div>
+    <script>
+        window.print();
+    </script>
 <?php endif; ?>

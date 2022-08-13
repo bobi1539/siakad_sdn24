@@ -9,7 +9,8 @@ class Data_guru extends CI_Controller
         isLogin();
     }
 
-    public function index(){
+    public function index()
+    {
         $data['aktif'] = 'data_guru';
         $data['data_guru'] = $this->Guru_model->tampil_data();
 
@@ -20,7 +21,18 @@ class Data_guru extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function tambah(){
+    public function print_data()
+    {
+        $data['aktif'] = 'data_guru';
+        $data['data_guru'] = $this->Guru_model->tampil_data();
+
+        $this->load->view('template/header');
+        $this->load->view('data_guru/print_data', $data);
+        $this->load->view('template/footer');
+    }
+
+    public function tambah()
+    {
         $data['aktif'] = 'data_guru';
 
         $this->load->view('template/header');
@@ -30,7 +42,8 @@ class Data_guru extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function edit($nip){
+    public function edit($nip)
+    {
         $data['aktif'] = 'data_guru';
         $data['data_guru'] = $this->Guru_model->tampil_by_id($nip);
 
@@ -55,8 +68,8 @@ class Data_guru extends CI_Controller
         if ($data_guru) {
             pesan('Data kelas dengan nip : ' . $nip . ' telah ada', 'danger');
             redirect('data_guru');
-        } 
-        
+        }
+
         $data = array(
             'nip' => $nip,
             'nama_guru' => $nama_guru,
@@ -70,7 +83,6 @@ class Data_guru extends CI_Controller
 
         pesan('Data guru berhasil ditambahkan', 'success');
         redirect('data_guru');
-
     }
 
     public function edit_aksi()
@@ -81,7 +93,7 @@ class Data_guru extends CI_Controller
         $tanggal_lahir = $this->input->post('tanggal_lahir', true);
         $tempat_lahir = $this->input->post('tempat_lahir', true);
         $alamat = $this->input->post('alamat', true);
-        
+
         $data = array(
             'nama_guru' => $nama_guru,
             'jabatan' => $jabatan,
@@ -94,13 +106,12 @@ class Data_guru extends CI_Controller
 
         pesan('Data guru berhasil diubah', 'success');
         redirect('data_guru');
-
     }
 
     public function hapus($nip)
     {
         $is_delete = $this->Guru_model->hapus($nip);
-        if(!$is_delete){
+        if (!$is_delete) {
             pesan('Data guru tidak bisa dihapus karena ada di tabel lain', 'warning');
         } else {
             pesan('Data guru berhasil dihapus', 'success');

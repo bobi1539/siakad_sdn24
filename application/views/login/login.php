@@ -32,6 +32,9 @@
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
+                                        <a type="submit" class="btn btn-success btn-user btn-block" target="_blank">
+                                            Web Sekolah
+                                        </a>
                                         <hr>
                                     </form>
                                     <hr>

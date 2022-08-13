@@ -9,7 +9,8 @@ class Data_absensi extends CI_Controller
         isLogin();
     }
 
-    public function index(){
+    public function index()
+    {
         $data['aktif'] = 'data_absensi';
         $data['data_absensi'] = $this->Absensi_model->tampil_distinct_data();
 
@@ -20,7 +21,8 @@ class Data_absensi extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function tambah(){
+    public function tambah()
+    {
         $data['aktif'] = 'data_absensi';
         $data['data_guru'] = $this->Guru_model->tampil_data();
         $data['data_siswa'] = $this->Siswa_model->tampil_data();
@@ -33,19 +35,19 @@ class Data_absensi extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function lihat($id_absen){
+    public function lihat($id_absen)
+    {
         $data['aktif'] = 'data_absensi';
         $data['data_siswa'] = $this->Absensi_model->lihat_by_id($id_absen);
         $data['data_absensi'] = $this->Absensi_model->tampil_absensi_judul($id_absen);
-        
+
         $this->load->view('template/header');
-        $this->load->view('template/admin/sidebar', $data);
         $this->load->view('data_absensi/lihat', $data);
-        $this->load->view('template/end_sidebar');
         $this->load->view('template/footer');
     }
 
-    public function tambah_siswa($id_absen){
+    public function tambah_siswa($id_absen)
+    {
         $data['aktif'] = 'data_absensi';
         $data['data_siswa'] = $this->Siswa_model->tampil_data();
         $data['data_absensi'] = $this->Absensi_model->tampil_only_absensi($id_absen);
@@ -68,12 +70,12 @@ class Data_absensi extends CI_Controller
         $semester = $this->input->post('semester', true);
 
         $siswa_absen = $this->Absensi_model->tampil_only_absensi_dan_siswa($id_absen, $nis);
-        
-        if($siswa_absen){
+
+        if ($siswa_absen) {
             pesan('Siswa sudah masuk absen di id absen : ' . $id_absen, 'danger');
             redirect('data_absensi');
         }
-        
+
         $data = array(
             'id_absen' => $id_absen,
             'tanggal_absen' => $tanggal_absen,
@@ -90,7 +92,8 @@ class Data_absensi extends CI_Controller
         redirect('data_absensi');
     }
 
-    public function edit($nip){
+    public function edit($nip)
+    {
         $data['aktif'] = 'data_guru';
         $data['data_guru'] = $this->Guru_model->tampil_by_id($nip);
 
@@ -103,7 +106,7 @@ class Data_absensi extends CI_Controller
 
     public function tambah_aksi()
     {
-        $id_absen = $this->input->post('id_absen', true);
+        // $id_absen = $this->input->post('id_absen', true);
         $tanggal_absen = $this->input->post('tanggal_absen', true);
         $nip = $this->input->post('nip', true);
         $nis = $this->input->post('nis', true);
@@ -111,13 +114,20 @@ class Data_absensi extends CI_Controller
         $keterangan = $this->input->post('keterangan', true);
         $semester = $this->input->post('semester', true);
 
-        $data_absen = $this->Absensi_model->tampil_by_id($id_absen);
+        // $data_absen = $this->Absensi_model->tampil_by_id($id_absen);
 
-        if ($data_absen) {
-            pesan('Data absen dengan id : ' . $id_absen . ' telah ada', 'danger');
-            redirect('data_absensi');
-        } 
-        
+        // if ($data_absen) {
+        //     pesan('Data absen dengan id : ' . $id_absen . ' telah ada', 'danger');
+        //     redirect('data_absensi');
+        // }
+
+        $absen = $this->Absensi_model->tampil_id_max();
+        $id_absen = $absen['id_absen'];
+        if ($id_absen == null || $id_absen == '') {
+            $id_absen = 1;
+        } else {
+            $id_absen += 1;
+        }
         $data = array(
             'id_absen' => $id_absen,
             'tanggal_absen' => $tanggal_absen,
@@ -132,7 +142,6 @@ class Data_absensi extends CI_Controller
 
         pesan('Data absensi berhasil ditambahkan', 'success');
         redirect('data_absensi');
-
     }
 
     public function edit_aksi()
@@ -143,7 +152,7 @@ class Data_absensi extends CI_Controller
         $tanggal_lahir = $this->input->post('tanggal_lahir', true);
         $tempat_lahir = $this->input->post('tempat_lahir', true);
         $alamat = $this->input->post('alamat', true);
-        
+
         $data = array(
             'nama_guru' => $nama_guru,
             'jabatan' => $jabatan,
@@ -156,7 +165,6 @@ class Data_absensi extends CI_Controller
 
         pesan('Data guru berhasil diubah', 'success');
         redirect('data_guru');
-
     }
 
     public function hapus($id_absen)

@@ -12,6 +12,10 @@
                     tambah data
                 </a>
 
+                <a href="<?php echo base_url('data_guru/print_data') ?>" class="btn btn-info mb-3" target="_blank">
+                    print data
+                </a>
+
                 <div class="table-responsive" style="font-size: 12px;">
                     <table class="table table-hover " id="tabel-data">
                         <thead>

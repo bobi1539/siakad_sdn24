@@ -112,7 +112,7 @@
                             <div class="form-group row">
                                 <label for="p_nilai" class="col-sm-4 col-form-label">Nilai</label>
                                 <div class="col-sm-8">
-                                    <input name="p_nilai" type="text" class="form-control" id="p_nilai" required maxlength="2">
+                                    <input name="p_nilai" type="number" class="form-control" id="p_nilai" required maxlength="2">
                                 </div>
                             </div>
 
@@ -135,7 +135,7 @@
                             <div class="form-group row">
                                 <label for="k_nilai" class="col-sm-4 col-form-label">Nilai</label>
                                 <div class="col-sm-8">
-                                    <input name="k_nilai" type="text" class="form-control" id="k_nilai" required maxlength="2">
+                                    <input name="k_nilai" type="number" class="form-control" id="k_nilai" required maxlength="2">
                                 </div>
                             </div>
                             <div class="form-group row" style="margin-top: 10px;">

@@ -39,7 +39,7 @@
                                         </a>
                                     </td>
                                     <td class="text-center" width="10">
-                                        <a class="btn mr-2 btn-sm btn-primary" href="<?php echo base_url('data_absensi/lihat/') . $data['id_absen'] ?>">
+                                        <a class="btn mr-2 btn-sm btn-primary" href="<?php echo base_url('data_absensi/lihat/') . $data['id_absen'] ?>" target="_blank">
                                             lihat
                                         </a>
                                     </td>
