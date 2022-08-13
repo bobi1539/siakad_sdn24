@@ -40,4 +40,14 @@ class Nilai_model extends CI_Model
     {
         return $this->db->query("SELECT * FROM tbl_nilai AS tn JOIN tbl_siswa as ts ON ts.nis = tn.nis JOIN tbl_mapel as tm ON tm.id_pelajaran = tn.id_pelajaran WHERE tn.nis = '$nis'")->row_array();
     }
+
+    public function lihat_nilai_siswa_by_nis_array_semester($nis, $semester)
+    {
+        return $this->db->query("SELECT * FROM tbl_nilai AS tn JOIN tbl_siswa as ts ON ts.nis = tn.nis JOIN tbl_mapel as tm ON tm.id_pelajaran = tn.id_pelajaran WHERE tn.nis = '$nis' AND tn.semester = '$semester'")->result_array();
+    }
+
+    public function lihat_nilai_siswa_by_nis_semester($nis, $semester)
+    {
+        return $this->db->query("SELECT * FROM tbl_nilai AS tn JOIN tbl_siswa as ts ON ts.nis = tn.nis JOIN tbl_mapel as tm ON tm.id_pelajaran = tn.id_pelajaran WHERE tn.nis = '$nis' AND tn.semester = '$semester'")->row_array();
+    }
 }

@@ -11,12 +11,12 @@
                 <form action="<?php echo base_url('data_nilai/tambah_aksi') ?>" method="POST">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group row">
+                            <!-- <div class="form-group row">
                                 <label for="id_nilai" class="col-sm-4 col-form-label">Id Nilai</label>
                                 <div class="col-sm-8">
                                     <input name="id_nilai" type="text" class="form-control" id="id_nilai" required maxlength="4">
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="form-group row">
                                 <label for="nis" class="col-sm-4 col-form-label">NIS</label>
@@ -79,7 +79,10 @@
                             <div class="form-group row">
                                 <label for="semester" class="col-sm-4 col-form-label">Semester</label>
                                 <div class="col-sm-8">
-                                    <input name="semester" type="text" class="form-control" id="semester" required maxlength="15">
+                                    <select class="form-control" id="semester" name="semester">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

@@ -15,7 +15,7 @@
 <script>
     $(document).ready(function() {
         $('#tabel-data').DataTable();
-        $('#tabel-dokumen').DataTable();
+        $('#tabel-data-2').DataTable();
         $('#tabel-penduduk').DataTable();
         $('#tabel-pegawai').DataTable();
         $('#tabel-data-keluarga').DataTable();

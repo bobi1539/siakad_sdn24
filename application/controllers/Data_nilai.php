@@ -37,7 +37,6 @@ class Data_nilai extends CI_Controller
 
     public function tambah_aksi()
     {
-        $id_nilai = $this->input->post('id_nilai', true);
         $nis = $this->input->post('nis', true);
         $id_pelajaran = $this->input->post('id_pelajaran', true);
         $n_sekolah = $this->input->post('n_sekolah', true);
@@ -58,15 +57,15 @@ class Data_nilai extends CI_Controller
         $ket_alpha = $this->input->post('ket_alpha', true);
 
 
-        $data_nilai = $this->Nilai_model->tampil_nilai_by_id($id_nilai);
+        // $data_nilai = $this->Nilai_model->tampil_nilai_by_id($id_nilai);
 
-        if ($data_nilai) {
-            pesan('Data nilai dengan id : ' . $id_nilai . ' telah ada', 'danger');
-            redirect('data_nilai');
-        }
+        // if ($data_nilai) {
+        //     pesan('Data nilai dengan id : ' . $id_nilai . ' telah ada', 'danger');
+        //     redirect('data_nilai');
+        // }
 
         $data = array(
-            "id_nilai" => $id_nilai,
+            // "id_nilai" => $id_nilai,
             "nis" => $nis,
             "id_pelajaran" => $id_pelajaran,
             "n_sekolah" => $n_sekolah,
@@ -96,8 +95,9 @@ class Data_nilai extends CI_Controller
     public function lihat_nilai_siswa()
     {
         $nis = $this->input->post("nis", true);
-        $data['nilai_siswa_array'] = $this->Nilai_model->lihat_nilai_siswa_by_nis_array($nis);
-        $data['nilai_siswa'] = $this->Nilai_model->lihat_nilai_siswa_by_nis($nis);
+        $semester = $this->input->post("semester", true);
+        $data['nilai_siswa_array'] = $this->Nilai_model->lihat_nilai_siswa_by_nis_array_semester($nis, $semester);
+        $data['nilai_siswa'] = $this->Nilai_model->lihat_nilai_siswa_by_nis_semester($nis, $semester);
 
         $this->load->view('template/header');
         $this->load->view('data_nilai/lihat_nilai_siswa', $data);
