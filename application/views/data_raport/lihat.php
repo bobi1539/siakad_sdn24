@@ -216,31 +216,97 @@
                         </table>
                     </div>
                 </div>
-
-                <h6 class="text-center">Mengetahui</h5>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h6 class="text-center">Orang Tua Wali</h6>
-                            <br><br><br><br>
-                            <h6 class="text-center">(.......................)</h6>
-                        </div>
-                        <div class="col-md-4">
-                            <h6 class="text-center">Kepala Sekolah</h6>
-                            <br><br><br><br>
-                            <h6 class="text-center">Emi Murniati, S.Pd.SD</h6>
-                            <h6 class="text-center">NIP:196701101990092001</h6>
-                        </div>
-                        <div class="col-md-4">
-                            <h6 class="text-center">Biaro, <?php echo date('d-m-Y') ?></h6>
-                            <br><br><br><br>
-                            <h6 class="text-center">Teti Angreni, S.Pd</h6>
-                            <h6 class="text-center">Nuptk:6445755658300013</h6>
-                        </div>
+                <div class="row my-3">
+                    <div class="col-md-12">
+                        <h5>F. Prestasi</h5>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">Jenis Prestasi</th>
+                                    <th class="text-center">Keterangan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-md-12">
+                        <h5>G. Kehadiran</h5>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">Kehadiran</th>
+                                    <th class="text-center">Keterangan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">Sakit</td>
+                                    <td><?php echo $nilai_siswa['ket_sakit'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">Izin</td>
+                                    <td><?php echo $nilai_siswa['ket_izin'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">Alpha</td>
+                                    <td><?php echo $nilai_siswa['ket_alpha'] ?></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <h6 class="text-center">Orang Tua Wali</h6>
+                        <br><br><br><br>
+                        <h6 class="text-center">(.......................)</h6>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-4">
+                        <h6 class="text-center">Biaro, <?php echo date('d-m-Y') ?></h6>
+                        <br><br><br><br>
+                        <h6 class="text-center">Teti Angreni, S.Pd</h6>
+                        <h6 class="text-center">Nuptk:6445755658300013</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <h6 class="text-center">Mengetahui</h6>
+                        <h6 class="text-center">Kepala Sekolah</h6>
+                        <br><br><br><br>
+                        <h6 class="text-center">Emi Murniati, S.Pd.SD</h6>
+                        <h6 class="text-center">NIP:196701101990092001</h6>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
             </div>
         </div>
     </div>
     <script>
-        // window.print();
+        window.print();
     </script>
 <?php endif; ?>

@@ -14,6 +14,7 @@ class Data_raport extends CI_Controller
         $data['aktif'] = 'data_raport';
         $data['data_raport'] = $this->Nilai_model->tampil_data();
         $data['data_siswa'] = $this->Siswa_model->tampil_data();
+        $data['data_kelas'] = $this->Kelas_model->tampil_data();
 
         $this->load->view('template/header');
         $this->load->view('template/admin/sidebar', $data);
@@ -31,6 +32,26 @@ class Data_raport extends CI_Controller
 
         $this->load->view('template/header');
         $this->load->view('data_raport/lihat', $data);
+        $this->load->view('template/footer');
+    }
+
+    public function lihat_nilai_seluruh_siswa()
+    {
+        $id_kelas = $this->input->post('id_kelas', true);
+        $semester = $this->input->post('semester', true);
+
+
+        $data['id_kelas'] = $id_kelas;
+        $data['semester'] = $semester;
+        $data['nilai_siswa'] = $this->Nilai_model->lihat_nilai_seluruh_siswa($id_kelas, $semester);
+        $data['nilai_siswa_distinct'] = $this->Nilai_model->lihat_nilai_seluruh_siswa_distinct($id_kelas, $semester);
+        $data['pelajaran'] = $this->Pelajaran_model->lihat_by_id_kelas($id_kelas);
+
+        // echo json_encode($data['nilai_siswa']);
+        // die;
+
+        $this->load->view('template/header');
+        $this->load->view('data_raport/lihat_seluruh_siswa', $data);
         $this->load->view('template/footer');
     }
 }

@@ -50,22 +50,35 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="card shadow">
                     <div class="card-header">
-                        <h5 class="text-center"> Daftar Nilai Siswa</h5>
+                        <h5 class="text-center"> Daftar Nilai Seluruh Siswa</h5>
                     </div>
                     <div class="card-body">
+                        <form action="<?php echo base_url('data_raport/lihat_nilai_seluruh_siswa') ?>" method="POST" target="_blank">
+                            <div class="form-group row">
+                                <label for="id_kelas" class="col-sm-4 col-form-label">kelas</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="id_kelas" name="id_kelas">
+                                        <?php foreach ($data_kelas as $data) : ?>
+                                            <option value="<?php echo $data['id_kelas'] ?>"><?php echo $data['id_kelas'] ?></option>
+                                        <?php endforeach ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="semester" class="col-sm-4 col-form-label">Semester</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="semester" name="semester">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Lihat</button>
+                        </form>
 
-                        <?php echo $this->session->tempdata('pesan') ?>
-
-                        <a href="<?php echo base_url('data_raport/tambah') ?>" class="btn btn-primary mb-3">
-                            tambah data
-                        </a>
-
-                        <a href="<?php echo base_url('data_guru/print_data') ?>" class="btn btn-info mb-3" target="_blank">
-                            print data
-                        </a>
                     </div>
                 </div>
             </div>
