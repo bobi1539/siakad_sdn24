@@ -46,7 +46,7 @@ class Data_raport extends CI_Controller
         $data['nilai_siswa'] = $this->Nilai_model->lihat_nilai_seluruh_siswa($id_kelas, $semester);
         $data['nilai_siswa_distinct'] = $this->Nilai_model->lihat_nilai_seluruh_siswa_distinct($id_kelas, $semester);
         $data['pelajaran'] = $this->Pelajaran_model->lihat_by_id_kelas($id_kelas);
-
+        $data['to_average'] = $this->Nilai_model->to_get_average($id_kelas, $semester);
         // echo json_encode($data['nilai_siswa']);
         // die;
 

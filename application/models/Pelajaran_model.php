@@ -44,4 +44,11 @@ class Pelajaran_model extends CI_Model
         $this->db->where('id_kelas', $id_kelas);
         return $this->db->get('tbl_mapel')->result_array();
     }
+
+    public function lihat_id_by_id_kelas($id_kelas)
+    {
+        // $this->db->select("id_pelajaran");
+        $this->db->where('id_kelas', $id_kelas);
+        return $this->db->get('tbl_mapel')->result_array();
+    }
 }

@@ -14,6 +14,7 @@ class Data_nilai extends CI_Controller
         $data['aktif'] = 'data_nilai';
         $data['data_nilai'] = $this->Nilai_model->tampil_data();
         $data['data_siswa'] = $this->Siswa_model->tampil_data();
+        $data['data_kelas'] = $this->Kelas_model->tampil_data();
 
         $this->load->view('template/header');
         $this->load->view('template/admin/sidebar', $data);
@@ -24,9 +25,21 @@ class Data_nilai extends CI_Controller
 
     public function tambah()
     {
+        $id_kelas = $this->input->post('id_kelas', true);
+
         $data['aktif'] = 'data_nilai';
-        $data['data_siswa'] = $this->Siswa_model->tampil_data();
-        $data['data_pelajaran'] = $this->Pelajaran_model->tampil_data();
+        $data['data_siswa'] = $this->Siswa_model->tampil_data_by_id_kelas($id_kelas);
+        $data['data_pelajaran'] = $this->Pelajaran_model->lihat_by_id_kelas($id_kelas);
+
+        if ($data['data_siswa'] == null) {
+            pesan('Silahkah tambahkan siswa untuk kelas ' . $id_kelas, 'danger');
+            redirect('data_nilai');
+        }
+
+        if ($data['data_pelajaran'] == null) {
+            pesan('Silahkah tambahkan pelajaran untuk kelas ' . $id_kelas, 'danger');
+            redirect('data_nilai');
+        }
 
         $this->load->view('template/header');
         $this->load->view('template/admin/sidebar', $data);
@@ -114,6 +127,14 @@ class Data_nilai extends CI_Controller
     public function get_siswa($nis)
     {
         $data = $this->Siswa_model->tampil_by_id($nis);
+        echo json_encode($data);
+    }
+
+    public function get_siswa_pelajaran($nis)
+    {
+        $data_siswa = $this->Siswa_model->tampil_by_id($nis);
+        $id_kelas = $data_siswa['id_kelas'];
+        $data = $this->Pelajaran_model->lihat_by_id_kelas($id_kelas);
         echo json_encode($data);
     }
 }

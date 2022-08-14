@@ -9,9 +9,29 @@
 
                 <?php echo $this->session->tempdata('pesan') ?>
 
-                <a href="<?php echo base_url('data_nilai/tambah') ?>" class="btn btn-primary mb-3">
-                    tambah data nilai
-                </a>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card-body border mb-3">
+                            <form action="<?php echo base_url('data_nilai/tambah') ?>" method="POST">
+                                <div class="form-group row">
+                                    <label for="id_kelas" class="col-sm-4 col-form-label">Id Kelas</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" id="id_kelas" name="id_kelas">
+                                            <?php foreach ($data_kelas as $data) : ?>
+                                                <option value="<?php echo $data['id_kelas'] ?>">
+                                                    <?php echo $data['id_kelas'] ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="col-sm-4 btn btn-primary mb-3">
+                                        tambah data nilai
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="table-responsive">
                     <table class="table table-hover " id="tabel-data">

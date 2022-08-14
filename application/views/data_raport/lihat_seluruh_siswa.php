@@ -50,9 +50,6 @@
                                 <?php $no = 1;
                                 $jumlah_nilai = 0;
                                 $array_nilai = array();
-                                $array_nilai2 = array();
-                                $array_nilai3 = array();
-                                $index = 0;
                                 foreach ($nilai_siswa_distinct as $data) : ?>
                                     <tr>
                                         <td class="text-center"><?php echo $no++ ?></td>
@@ -68,9 +65,6 @@
                                                             echo $nilai_pelajaran;
                                                             $jumlah_nilai += $nilai_pelajaran;
                                                             $array_nilai[$no] = $jumlah_nilai;
-                                                            $array_nilai3[$index] = $nilai_pelajaran;
-                                                            $array_nilai2[$index] = $array_nilai3;
-                                                            $index++;
                                                         }
                                                     } ?>
                                                     <?php
@@ -96,7 +90,14 @@
                                 <tr>
                                     <td class="text-center" colspan="3">Rata-rata</td>
                                     <?php foreach ($pelajaran as $data_pelajaran) : ?>
-                                        <td></td>
+                                        <td class="text-center">
+                                            <?php foreach ($to_average as $data) : ?>
+                                                <?php if ($data['id_pelajaran'] == $data_pelajaran['id_pelajaran']) {
+                                                    echo round($data['total'], 2);
+                                                } ?>
+
+                                            <?php endforeach; ?>
+                                        </td>
                                     <?php endforeach; ?>
                                     <td class="text-center"><?php echo round($jumlah_nilai / count($nilai_siswa_distinct), 2) ?></td>
                                     <td>
@@ -106,10 +107,6 @@
                         </table>
                     </div>
                 </div>
-
-                <?php
-                echo json_encode($array_nilai2);
-                ?>
 
 
                 <div class="row">

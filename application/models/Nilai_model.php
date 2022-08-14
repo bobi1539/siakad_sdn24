@@ -60,4 +60,9 @@ class Nilai_model extends CI_Model
     {
         return $this->db->query("SELECT * FROM tbl_nilai AS tn JOIN tbl_siswa as ts ON ts.nis = tn.nis JOIN tbl_mapel as tm ON tm.id_pelajaran = tn.id_pelajaran WHERE ts.id_kelas = '$id_kelas' AND tn.semester = '$semester' GROUP BY tn.nis")->result_array();
     }
+
+    public function to_get_average($id_kelas, $semester)
+    {
+        return $this->db->query("SELECT tn.id_pelajaran, tn.p_nilai, AVG(tn.p_nilai) AS total FROM tbl_nilai AS tn JOIN tbl_siswa as ts ON ts.nis = tn.nis JOIN tbl_mapel as tm ON tm.id_pelajaran = tn.id_pelajaran WHERE ts.id_kelas = '$id_kelas' AND tn.semester = '$semester' GROUP BY tn.id_pelajaran")->result_array();
+    }
 }

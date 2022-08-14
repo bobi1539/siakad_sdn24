@@ -24,7 +24,7 @@
                                     <select class="form-control" id="nis" name="nis" onclick="clickNis()">
                                         <?php foreach ($data_siswa as $data) : ?>
                                             <option value="<?php echo $data['nis'] ?>">
-                                                <?php echo $data['nis'] ?>
+                                                <?php echo $data['nis'] . " : " . $data['nama_siswa'] ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -36,7 +36,7 @@
                                 <div class="col-sm-8">
                                     <select class="form-control" id="id_pelajaran" name="id_pelajaran">
                                         <?php foreach ($data_pelajaran as $data) : ?>
-                                            <option value="<?php echo $data['id_pelajaran'] ?>"><?php echo $data['id_pelajaran'] ?></option>
+                                            <option value="<?php echo $data['id_pelajaran'] ?>"><?php echo $data['id_pelajaran'] . " : " . $data['nama_pelajaran'] ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -275,6 +275,7 @@
 <script>
     function clickNis() {
         let selectNis = document.getElementById("nis");
+        let idPelajaran = document.getElementById("id_pelajaran");
 
         let tinggi = document.getElementById("tinggi");
         let berat = document.getElementById("berat");
@@ -293,5 +294,20 @@
                     penglihatan.value = data.k_penglihatan,
                     gigi.value = data.k_gigi
             });
+
+        // let url2 = "<?php echo base_url("data_nilai/get_siswa_pelajaran/") ?>" + nisValue;
+        // fetch(url2)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         for (let i = 0; i < data.length; i++) {
+        //             let opt = document.createElement('option');
+        //             opt.text = data[i].id_pelajaran;
+        //             opt.value = data[i].nama_pelajaran;
+        //             idPelajaran.add(opt);
+        //         }
+        //     });
+
+        // idPelajaran.removeAttribute("disabled");
+
     }
 </script>
