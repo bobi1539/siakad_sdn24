@@ -32,7 +32,7 @@
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
-                                        <a type="submit" class="btn btn-success btn-user btn-block" target="_blank">
+                                        <a type="submit" href="<?php echo base_url('home') ?>" class="btn btn-success btn-user btn-block">
                                             Web Sekolah
                                         </a>
                                         <hr>

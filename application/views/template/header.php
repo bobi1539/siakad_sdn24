@@ -24,6 +24,8 @@
     <!-- Custom styles for this page -->
     <link href="<?php echo base_url() ?>assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/style2.css') ?>" rel="stylesheet">
+
     <style>
         .img-logo {
             width: 100px;

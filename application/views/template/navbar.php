@@ -1,40 +1,23 @@
-<div class="bg-primary">
+<!-- ======= Header ======= -->
+<header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-utama">
-        <div class="container">
-            <a class="navbar-brand" href="#">Wali Nagari</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <h1 class="logo"><a href="index.html">SDN 24 Biaro<span>.</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item <?php echo $aktif == 'home' ? 'active' : '' ?>">
-                        <a class="nav-link" href="<?php echo base_url('beranda') ?>">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item <?php echo $aktif == 'dokumen' ? 'active' : '' ?>">
-                        <a class="nav-link" href="<?php echo base_url('beranda/document') ?>">Document</a>
-                    </li>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li>
+                    <a class="nav-link scrollto <?php echo $aktif == 'home' ? 'active' : '' ?>" href="<?php echo base_url('home') ?>">Home</a>
+                </li>
+                <li>
+                    <a class="nav-link scrollto <?php echo $aktif == 'about' ? 'active' : '' ?>"" href=" <?php echo base_url('home/about') ?>">About</a>
+                </li>
+                <li><a class="nav-link scrollto" href="<?php echo base_url('login') ?>">Login</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
 
-                    <?php if ($this->session->userdata('role_id')) : ?>
-                        <?php if ($this->session->userdata('role_id') == 'admin') : ?>
-                            <li class="nav-item <?php echo $aktif == 'profil' ? 'active' : '' ?>">
-                                <a class="nav-link" href="<?php echo base_url('admin') ?>">Profil</a>
-                            </li>
-                        <?php else : ?>
-                            <li class="nav-item <?php echo $aktif == 'user' ? 'active' : '' ?>">
-                                <a class="nav-link" href="<?php echo base_url('user') ?>">Profil</a>
-                            </li>
-                        <?php endif; ?>
-
-                    <?php else : ?>
-                        <li class="nav-item <?php echo $aktif == 'login' ? 'active' : '' ?>">
-                            <a class="nav-link" href="<?php echo base_url('login') ?>">Login</a>
-                        </li>
-                    <?php endif; ?>
-
-                </ul>
-            </div>
-    </nav>
-</div>
-</div>
+    </div>
+</header><!-- End Header -->
