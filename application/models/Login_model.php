@@ -26,4 +26,12 @@ class Login_model extends CI_Model
         $this->db->where('username', $no_pegawai);
         $this->db->delete('tbl_users');
     }
+
+    public function tampil_data()
+    {
+        $this->db->select("*");
+        $this->db->from("tbl_users");
+        $this->db->join("tbl_guru", "tbl_guru.nip = tbl_users.nip");
+        return $this->db->get()->result_array();
+    }
 }

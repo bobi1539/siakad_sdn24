@@ -24,33 +24,43 @@
             </a>
         </li> -->
 
-        <li class="nav-item <?php echo $aktif == 'data_guru' ? 'active' : '' ?>">
-            <a class="nav-link" href="<?php echo base_url("data_guru") ?>">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Data Guru</span>
-            </a>
-        </li>
+        <?php if ($this->session->userdata("role_id") == "ADMIN") : ?>
+            <li class="nav-item <?php echo $aktif == 'data_user' ? 'active' : '' ?>">
+                <a class="nav-link" href="<?php echo base_url("data_user") ?>">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Data User</span>
+                </a>
+            </li>
 
-        <li class="nav-item <?php echo $aktif == 'data_kelas' ? 'active' : '' ?>">
-            <a class="nav-link" href="<?php echo base_url("data_kelas") ?>">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Data Kelas</span>
-            </a>
-        </li>
 
-        <li class="nav-item <?php echo $aktif == 'data_pelajaran' ? 'active' : '' ?>">
-            <a class="nav-link" href="<?php echo base_url("data_pelajaran") ?>">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Data Pelajaran</span>
-            </a>
-        </li>
+            <li class="nav-item <?php echo $aktif == 'data_guru' ? 'active' : '' ?>">
+                <a class="nav-link" href="<?php echo base_url("data_guru") ?>">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Data Guru</span>
+                </a>
+            </li>
 
-        <li class="nav-item <?php echo $aktif == 'data_siswa' ? 'active' : '' ?>">
-            <a class="nav-link" href="<?php echo base_url("data_siswa") ?>">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Data Siswa</span>
-            </a>
-        </li>
+            <li class="nav-item <?php echo $aktif == 'data_kelas' ? 'active' : '' ?>">
+                <a class="nav-link" href="<?php echo base_url("data_kelas") ?>">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Data Kelas</span>
+                </a>
+            </li>
+
+            <li class="nav-item <?php echo $aktif == 'data_pelajaran' ? 'active' : '' ?>">
+                <a class="nav-link" href="<?php echo base_url("data_pelajaran") ?>">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Data Pelajaran</span>
+                </a>
+            </li>
+
+            <li class="nav-item <?php echo $aktif == 'data_siswa' ? 'active' : '' ?>">
+                <a class="nav-link" href="<?php echo base_url("data_siswa") ?>">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Data Siswa</span>
+                </a>
+            </li>
+        <?php endif; ?>
 
         <li class="nav-item <?php echo $aktif == 'data_absensi' ? 'active' : '' ?>">
             <a class="nav-link" href="<?php echo base_url("data_absensi") ?>">
@@ -58,6 +68,7 @@
                 <span>Data Absensi</span>
             </a>
         </li>
+
 
         <li class="nav-item <?php echo $aktif == 'data_nilai' ? 'active' : '' ?>">
             <a class="nav-link" href="<?php echo base_url("data_nilai") ?>">

@@ -39,7 +39,7 @@
                         <div class="col-sm-8">
                             <select class="form-control" id="nis" name="nis">
                                 <?php foreach ($data_siswa as $data) : ?>
-                                    <option value="<?php echo $data['nis'] ?>"><?php echo $data['nis'] ?></option>
+                                    <option value="<?php echo $data['nis'] ?>"><?php echo $data['nis'] . " : " . $data['nama_siswa'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -50,7 +50,7 @@
                         <div class="col-sm-8">
                             <select class="form-control" id="id_pelajaran" name="id_pelajaran">
                                 <?php foreach ($data_pelajaran as $data) : ?>
-                                    <option value="<?php echo $data['id_pelajaran'] ?>"><?php echo $data['id_pelajaran'] ?></option>
+                                    <option value="<?php echo $data['id_pelajaran'] ?>"><?php echo $data['id_pelajaran'] . " : " . $data['nama_pelajaran'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

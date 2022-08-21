@@ -14,7 +14,7 @@ function isLogin()
 }
 
 function pesan($pesan, $type)
-{   
+{
     $ci = get_instance();
     $ci->session->set_tempdata('pesan', '<div class="alert alert-' . $type . ' alert-dismissible fade show" role="alert">
         ' . $pesan . '        

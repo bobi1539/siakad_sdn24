@@ -41,7 +41,10 @@ class Login extends CI_Controller
 
         $this->session->set_userdata($data_user);
 
-        redirect('data_guru');
+        if ($data_user['role_id'] == "ADMIN") {
+            redirect('data_user');
+        }
+        redirect("data_absensi");
     }
 
     public function logout()
